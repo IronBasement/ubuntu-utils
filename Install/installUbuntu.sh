@@ -190,12 +190,32 @@ bluetooth() {
 
 profile() {
 
-  mkdir $HOME/Repos
+  mkdir -p $HOME/Repos
   ssh-keygen -P "" -f $HOME/.ssh/id_rsa
   git config --global user.email "hello@ironbasement.com"
   git config --global user.name "Iron Basement"
 
+cat <<'EOF' >> $HOME/.bashrc
 
+. $HOME/Repos/seaworth/Docker/httpd/php-apache/src/spotifyUtils.sh
+
+alias cda="cd $HOME/Repos/seaworth/Docker/httpd/"
+alias cdr="cd $HOME/Repos
+
+alias temp="echo $(( $(sensors | \
+                       sed -n '/edge/s/^.*+//p' | \
+                       sed 's/\.[0-9]*.C//g') \
+                  * 9 / 5 + 32))"
+
+
+alias fix-route='sudo route del             \
+                            -net 0.0.0.0    \
+                            gw 128.34.1.1   \
+                            netmask 0.0.0.0 \
+                            dev enx20aa4b45a7a0'
+
+
+EOF
 
 }
 
@@ -211,5 +231,5 @@ basePackages
 #signal
 #kicad
 #arduino
-bluetooth
-#profile
+#bluetooth
+profile
