@@ -15,6 +15,7 @@ basePackages() {
                       gnupg           \
                       lsb-release     \
                       librecad        \
+                      lutris          \
                       git
 
 }
