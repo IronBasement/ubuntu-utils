@@ -61,6 +61,7 @@ chrome() {
   addChromeExtension "hdokiejnpimakedhajhdlcegeplioahd" "LastPass"
 
   rm google-chrome-stable_current_amd64.deb
+
 }
 
 
@@ -188,6 +189,13 @@ bluetooth() {
 
 
 
+gimp() {
+  sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+  sudo apt update
+  sudo apt install -y gimp
+}
+
+
 profile() {
 
   mkdir -p $HOME/Repos
@@ -232,4 +240,5 @@ basePackages
 #kicad
 #arduino
 #bluetooth
+#gimp
 profile
