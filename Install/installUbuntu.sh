@@ -23,7 +23,6 @@ basePackages() {
                       gnupg           \
                       lsb-release     \
                       librecad        \
-                      lutris          \
                       git
 
 }
@@ -205,6 +204,14 @@ gimp() {
 }
 
 
+
+lutris(){
+  sudo add-apt-repository -y ppa:lutris-team/lutris
+  sudo apt install -y lutris
+}
+
+
+
 profile() {
 
   mkdir -p $HOME/Repos
@@ -252,6 +259,7 @@ funcs='basePackages
             #arduino
             #bluetooth
             #gimp
+            #lutris
             profile'
 
 for func in $funcs; do
