@@ -1,6 +1,14 @@
 #!/bin/bash
 
 
+runFunc() {
+  echo "RUNNING $1" >> $LOG
+  $1 2>&1 | tee -a $LOG
+  echo "DONE RUNNING $1" >> $LOG
+  for i in {0..4}; do echo "" >> $LOG; done
+}
+
+
 addKey(){
   wget -O- $1 | sudo apt-key add -
 }
@@ -54,7 +62,7 @@ chrome() {
   sudo apt install ./google-chrome-stable_current_amd64.deb
 
   sudo mkdir -p /opt/google/chrome/extensions
-  sudo chown nphillips:nphillips /opt/google/chrome/extensions
+  sudo chown $(whoami):$(whoami) /opt/google/chrome/extensions
 
   addChromeExtension "cjpalhdlnbpafiamejdnhcphjbkeiagm" "ublock origin"
   addChromeExtension "bmnlcjabgnpnenekpadlanbbkooimhnj" "Honey"
@@ -228,18 +236,25 @@ EOF
 
 }
 
-basePackages
-#openSSH
-#virtualBox
-#chrome
-#vscode
-#discord
-#spotify
-#docker
-#minecraft
-#signal
-#kicad
-#arduino
-#bluetooth
-#gimp
-profile
+LOG=$(pwd)/log_$(date +%s)
+
+funcs='basePackages
+            #openSSH
+            #virtualBox
+            #chrome
+            #vscode
+            #discord
+            #spotify
+            #docker
+            #minecraft
+            #signal
+            #kicad
+            #arduino
+            #bluetooth
+            #gimp
+            profile'
+
+for func in $funcs; do
+  echo "$func"
+  runFunc $func
+done
