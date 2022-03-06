@@ -89,6 +89,8 @@ vscode() {
 
   sudo apt install code
 
+  code --install-extension vsciot-vscode.vscode-arduino
+
 }
 
 
