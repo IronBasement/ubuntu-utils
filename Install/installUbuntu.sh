@@ -215,6 +215,34 @@ lutris(){
 
 
 
+network(){
+
+  local conf="/etc/NetworkManager/system-connections/Wired\ connection\ 2.nmconnection"
+
+cat <<'EOF' >> "$conf"
+[connection]
+id=Internal Netowrk
+uuid=f0aef0cd-e68e-3a3c-9785-80e703b3ade2
+type=ethernet
+autoconnect-priority=-999
+interface-name=enx20aa4b45a7a0
+permissions=
+timestamp=1646606541
+
+
+[ipv4]
+address1=128.34.1.10/8,128.34.1.1
+dns-search=
+method=manual
+
+EOF
+
+  sudo chown root:root "$conf"
+  sudo chmod 600 "$conf"
+}
+
+
+
 profile() {
 
   mkdir -p $HOME/Repos
@@ -263,6 +291,7 @@ funcs='basePackages
             #bluetooth
             #gimp
             #lutris
+            #network
             profile'
 
 for func in $funcs; do
