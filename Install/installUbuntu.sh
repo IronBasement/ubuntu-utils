@@ -90,6 +90,7 @@ vscode() {
   sudo apt install code
 
   code --install-extension vsciot-vscode.vscode-arduino
+  code --install-extension platformio.platformio-ide
 
 }
 
@@ -251,6 +252,7 @@ funcs='basePackages
             #openSSH
             #virtualBox
             #chrome
+            #arduino
             #vscode
             #discord
             #spotify
@@ -258,7 +260,6 @@ funcs='basePackages
             #minecraft
             #signal
             #kicad
-            #arduino
             #bluetooth
             #gimp
             #lutris
