@@ -89,6 +89,7 @@ vscode() {
 
   sudo apt install code
 
+  code --install-extension ms-vscode.cpptools
   code --install-extension vsciot-vscode.vscode-arduino
   code --install-extension platformio.platformio-ide
 
