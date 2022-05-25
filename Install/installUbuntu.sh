@@ -259,6 +259,10 @@ cat <<'EOF' >> $HOME/.bashrc
 alias cda="cd $HOME/Repos/seaworth/Docker/httpd/"
 alias cdr="cd $HOME/Repos
 
+alias add-ip=$(sudo ip addr add 128.34.1.12/24 dev wlp1s0 label wlp1s0:1)
+alias single='xrandr --output HDMI-A-0 --off; xrandr --output HDMI-A-1 --off'
+alias monitors='xrandr --output HDMI-A-0 --auto; xrandr --output HDMI-A-1 --auto'
+
 alias temp="echo $(( $(sensors | \
                        sed -n '/edge/s/^.*+//p' | \
                        sed 's/\.[0-9]*.C//g') \
