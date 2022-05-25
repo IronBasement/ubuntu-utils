@@ -259,9 +259,10 @@ cat <<'EOF' >> $HOME/.bashrc
 alias cda="cd $HOME/Repos/seaworth/Docker/httpd/"
 alias cdr="cd $HOME/Repos
 
-alias add-ip=$(sudo ip addr add 128.34.1.12/24 dev wlp1s0 label wlp1s0:1)
+alias add-ip='sudo ip addr add 128.34.1.12/24 dev wlp1s0 label wlp1s0:1'
 alias single='xrandr --output HDMI-A-0 --off; xrandr --output HDMI-A-1 --off'
-alias monitors='xrandr --output HDMI-A-0 --auto; xrandr --output HDMI-A-1 --auto'
+alias monitors='xrandr --output HDMI-A-0 --auto;xrandr --output HDMI-A-1 --auto'
+alias fix-route='sudo route del -net 0.0.0.0/0 gw 192.168.50.1 dev wlp1s0'
 
 alias temp="echo $(( $(sensors | \
                        sed -n '/edge/s/^.*+//p' | \
@@ -269,7 +270,7 @@ alias temp="echo $(( $(sensors | \
                   * 9 / 5 + 32))"
 
 
-alias fix-route='sudo route del             \
+alias fix-route2='sudo route del             \
                             -net 0.0.0.0    \
                             gw 128.34.1.1   \
                             netmask 0.0.0.0 \
