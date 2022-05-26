@@ -262,7 +262,8 @@ alias cdr="cd $HOME/Repos
 alias add-ip='sudo ip addr add 128.34.1.12/24 dev wlp1s0 label wlp1s0:1'
 alias single='xrandr --output HDMI-A-0 --off; xrandr --output HDMI-A-1 --off'
 alias monitors='xrandr --output HDMI-A-0 --auto;xrandr --output HDMI-A-1 --auto'
-alias fix-route='sudo route del -net 0.0.0.0/0 gw 192.168.50.1 dev wlp1s0'
+alias fix-routes='sudo route del -net 0.0.0.0/0 gw 192.168.50.1 dev wlp1s0; \
+                  sudo route del -net 192.168.50.0/24 gw 0.0.0.0 dev wlp1s0'
 
 alias temp="echo $(( $(sensors | \
                        sed -n '/edge/s/^.*+//p' | \
