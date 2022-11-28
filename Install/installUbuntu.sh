@@ -282,6 +282,12 @@ EOF
 
 }
 
+# NOTE: Have to reboot for this change to take effect
+realtekWifi(){
+  sudo apt update -y
+  sudo apt install rtl8821ce-dkms -y
+}
+
 LOG=$(pwd)/log_$(date +%s)
 
 funcs='basePackages
@@ -300,6 +306,7 @@ funcs='basePackages
             #gimp
             #lutris
             #network
+            #realtekWifi
             profile'
 
 for func in $funcs; do
