@@ -23,6 +23,7 @@ basePackages() {
                       gnupg           \
                       lsb-release     \
                       librecad        \
+                      snapd           \
                       python3-pip     \
                       git
 
