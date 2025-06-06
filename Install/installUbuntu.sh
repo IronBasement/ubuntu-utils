@@ -170,6 +170,11 @@ kicad() {
 }
 
 
+cura() {
+  sudo snap install cura-slicer
+}
+
+
 
 arduino() {
 
@@ -303,6 +308,7 @@ funcs='basePackages
             #minecraft
             #signal
             #kicad
+            #cura
             #bluetooth
             #gimp
             #lutris
