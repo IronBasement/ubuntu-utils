@@ -38,6 +38,18 @@ openSSH() {
 }
 
 
+flatpak() {
+
+  sudo apt install flatpak
+  sudo apt install gnome-software-plugin-flatpak
+  flatpak remote-add \
+          --if-not-exists \
+          flathub \
+          https://dl.flathub.org/repo/flathub.flatpakrepo
+
+}
+
+
 virtualBox() {
   sudo apt -y install virtualbox
   sudo apt -y install virtualbox—ext–pack
@@ -174,6 +186,11 @@ cura() {
   sudo snap install cura-slicer
 }
 
+prusaSlicer() {
+  flatpak install flathub com.prusa3d.PrusaSlicer
+  flatpak run com.prusa3d.PrusaSlicer
+}
+
 
 
 arduino() {
@@ -298,6 +315,7 @@ LOG=$(pwd)/log_$(date +%s)
 
 funcs='basePackages
             #openSSH
+            #flatpak
             #virtualBox
             #chrome
             #arduino
@@ -309,6 +327,7 @@ funcs='basePackages
             #signal
             #kicad
             #cura
+            #prusaSlicer
             #bluetooth
             #gimp
             #lutris
