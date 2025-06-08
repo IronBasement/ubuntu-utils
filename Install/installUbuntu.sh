@@ -38,10 +38,10 @@ openSSH() {
 }
 
 
-flatpak() {
+installFlatpak() {
 
-  sudo apt install flatpak
-  sudo apt install gnome-software-plugin-flatpak
+  sudo apt install -y flatpak
+  sudo apt install -y gnome-software-plugin-flatpak
   flatpak remote-add \
           --if-not-exists \
           flathub \
@@ -187,6 +187,10 @@ cura() {
 }
 
 prusaSlicer() {
+  curl -O https://dl.flathub.org/repo/appstream/com.prusa3d.PrusaSlicer.flatpakref
+  sudo flatk install --from com.prusa3d.PrusaSlicer.flatpakref -y
+  
+  return
   flatpak install flathub com.prusa3d.PrusaSlicer
   flatpak run com.prusa3d.PrusaSlicer
 }
@@ -313,9 +317,10 @@ realtekWifi(){
 
 LOG=$(pwd)/log_$(date +%s)
 
-funcs='basePackages
+funcs='
+            #basePackages
             #openSSH
-            #flatpak
+            #installFlatpak
             #virtualBox
             #chrome
             #arduino
@@ -333,7 +338,8 @@ funcs='basePackages
             #lutris
             #network
             #realtekWifi
-            profile'
+            #profile
+    '
 
 for func in $funcs; do
   echo "$func"
